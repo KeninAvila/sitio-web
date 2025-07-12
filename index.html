@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HolaWeb - Biblioteca UI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+  </head>
+  <body>
+    <!-- NAVBAR con checkbox -->
+    <header class="navbar">
+      <div class="navbar__logo">HolaWeb</div>
+
+      <input type="checkbox" id="menu-toggle" class="navbar__checkbox" />
+      <label for="menu-toggle" class="navbar__toggle">&#9776;</label>
+
+      <nav class="navbar__menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#faqs">FAQs</a>
+      </nav>
+    </header>
+
+    <!-- TARJETAS DE SERVICIO -->
+    <section id="servicios" class="section servicios">
+      <h2>Servicios</h2>
+      <div class="card__container">
+        <div class="card">
+          <img src="img/diseno-web.jpg" alt="Diseño Web" class="card__img" />
+          <h3>Diseño Web</h3>
+          <p>Modernos, responsivos y funcionales.</p>
+          <label for="modal-toggle" class="button button--primary"
+            >Solicitar Servicio</label
+          >
+        </div>
+
+        <div class="card">
+          <img src="img/branding.jpg" alt="Branding" class="card__img" />
+          <h3>Branding <span class="badge">¡Nuevo!</span></h3>
+          <p>Diseño de marcas y logos únicos.</p>
+          <label for="modal-toggle" class="button button--primary"
+            >Solicitar Servicio</label
+          >
+        </div>
+
+        <div class="card">
+          <img src="img/desarrollo.png" alt="Desarrollo" class="card__img" />
+          <h3>Desarrollo</h3>
+          <p>Aplicaciones eficientes para tu negocio.</p>
+          <label for="modal-toggle" class="button button--primary"
+            >Solicitar Servicio</label
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Checkbox -->
+    <input type="checkbox" id="modal-toggle" class="modal__checkbox" />
+
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal__content">
+        <!-- Botón de cierre -->
+        <label for="modal-toggle" class="modal__close">&times;</label>
+        <h3>Mensaje enviado</h3>
+        <p>Gracias por tu interés. Pronto te contactaremos.</p>
+      </div>
+    </div>
+
+    <!-- FORMULARIO -->
+    <!-- Checkbox oculto que controla el modal del formulario -->
+    <input type="checkbox" id="form-modal-toggle" class="modal__checkbox" />
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="section contacto">
+      <h2>Contacto</h2>
+      <form class="form" novalidate>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form__input" required/>
+
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" class="form__input" required/>
+        <span class="tooltip correo-tooltip">Ingrese un correo válido correo@example</span>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" class="form__input" required></textarea>
+
+        <!-- Botón de "Enviar" como label que activa el modal -->
+        <label for="form-modal-toggle" class="button button--primary">Enviar</label>
+      </form>
+    </section>
+
+    <!-- Modal que aparece al hacer clic en "Enviar" -->
+    <div class="modal form-modal">
+      <div class="modal__content">
+        <label for="form-modal-toggle" class="modal__close">&times;</label>
+        <h3>Correo enviado</h3>
+        <p>Gracias por contactarnos. Te responderemos pronto.</p>
+      </div>
+    </div>
+
+    <!-- FAQs con <details> -->
+    <section id="faqs" class="section faqs">
+      <h2>Preguntas Frecuentes</h2>
+      <details class="faq">
+        <summary>¿Cuánto tiempo toma un proyecto?</summary>
+        <p>Entre 2 y 4 semanas según la complejidad.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Qué necesito para comenzar?</summary>
+        <p>Una idea clara del objetivo y contenido básico.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Ofrecen mantenimiento web?</summary>
+        <p>Sí, tenemos planes de soporte mensual.</p>
+      </details>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2025 HolaWeb. Todos los derechos reservados.</p>
+      <div class="footer__socials">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+/* ========= VARIABLES ========== */
+:root {
+  --color-primary: #4A90E2;
+  --color-secondary: #50E3C2;
+  --color-light: #F5F7FA;
+  --color-dark: #333;
+  --color-error: #e74c3c;
+
+  --font-base: 'Segoe UI', sans-serif;
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ========= RESET & BASE ========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  background: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+  padding-top: 70px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 2rem 1rem;
+}
+
+/* ========= NAVBAR ========= */
+.navbar {
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.navbar__logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar__menu a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar__menu a:hover {
+  color: var(--color-primary);
+}
+
+.navbar__toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar__checkbox {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    display: none;
+  }
+  .navbar__checkbox:checked + .navbar__toggle + .navbar__menu {
+    display: flex;
+  }
+  .navbar__toggle {
+    display: block;
+  }
+}
+
+/* ========= BOTONES ========= */
+.button {
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
+  display: inline-block;
+}
+
+.button--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.button--primary:hover {
+  background: #3b7bc4;
+}
+
+/* ========= TARJETAS ========= */
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card__img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+}
+
+/* ========= MODAL ========= */
+/* Modal base oculto por defecto */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Mostrar modal solo si el checkbox está activo */
+.modal__checkbox:checked + .modal {
+  display: flex;
+}
+
+/* Contenido del modal */
+.modal__content {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Botón de cierre del modal */
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-dark);
+  text-decoration: none;
+  user-select: none;
+}
+
+/* Modal formulario */
+.form-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+/* Mostrar modal cuando checkbox está marcado */
+#form-modal-toggle:checked ~ .form-modal {
+  display: flex;
+}
+
+
+
+
+/* ========= ANIMACIÓN MODAL ========= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ========= FORMULARIO ========= */
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form__input {
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+}
+
+
+.tooltip {
+  font-size: 0.85rem;
+  color: var(--color-error);
+  display: none;
+}
+
+input:focus:invalid + .tooltip,
+textarea:focus:invalid + .tooltip {
+  display: block;
+}
+
+
+/* ========= BADGE ========= */
+.badge {
+  background: var(--color-secondary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+/* ========= ACORDEÓN (FAQs) ========= */
+.faq {
+  max-width: 700px;
+  margin: 1rem auto;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.faq summary {
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq[open] summary {
+  color: var(--color-primary);
+}
+
+.faq p {
+  margin-top: 0.5rem;
+}
+
+/* ========= FOOTER ========= */
+.footer {
+  background: var(--color-dark);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer__socials {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__socials a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer__socials a:hover {
+  text-decoration: underline;
+}
